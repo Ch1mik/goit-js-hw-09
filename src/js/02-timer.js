@@ -45,7 +45,12 @@ function convertMs(ms) {
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
+let timerRunning = false;
 start_btn.addEventListener('click', () => {
+  if (timerRunning) {
+    return;
+  }
+  timerRunning = true;
   let timer = setInterval(() => {
     let countdown = new Date(dataInput.value) - new Date();
     start_btn.disabled = true;
@@ -62,6 +67,7 @@ start_btn.addEventListener('click', () => {
       clearInterval(timer);
       start_btn.disabled = false;
       dataInput.disabled = false;
+      timerRunning = false;
     }
   }, 1000);
 });
