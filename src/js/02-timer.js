@@ -49,6 +49,7 @@ start_btn.addEventListener('click', () => {
   let timer = setInterval(() => {
     let countdown = new Date(dataInput.value) - new Date();
     start_btn.disabled = true;
+    dataInput.disabled = true;
     if (countdown >= 0) {
       let timeObject = convertMs(countdown);
       days.textContent = addLeadingZero(timeObject.days);
@@ -59,6 +60,8 @@ start_btn.addEventListener('click', () => {
       Notiflix.Notify.success('Countdown finished');
       timerHtml.style.color = 'red';
       clearInterval(timer);
+      start_btn.disabled = false;
+      dataInput.disabled = false;
     }
   }, 1000);
 });

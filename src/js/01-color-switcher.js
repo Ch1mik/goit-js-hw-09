@@ -18,7 +18,7 @@ function changeBackgroundColor() {
 
 function startChange() {
   refs.start_btn.disabled = true;
-  intervalId = setInterval(changeBackgroundColor, 500);
+  intervalId = setInterval(changeBackgroundColor, 1000);
 }
 
 function stopChange() {
